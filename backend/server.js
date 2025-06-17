@@ -36,34 +36,34 @@ app.use(
 app.use(morgan("dev"));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// app.use(async (req, res, next) => {
-//   try {
-//     const decision = await aj.protect(req, { requested: 1 });
+app.use(async (req, res, next) => {
+  try {
+    const decision = await aj.protect(req, { requested: 1 });
 
-//     if (decision.isDenied()) {
-//       if (decision.reason.isRateLimit()) {
-//         return res.status(429).json({ error: "Too Many Requests" });
-//       } else if (decision.reason.isBot()) {
-//         return res.status(403).json({ error: "Bot access denied" });
-//       } else {
-//         return res.status(403).json({ error: "Forbidden" });
-//       }
-//     }
+    if (decision.isDenied()) {
+      if (decision.reason.isRateLimit()) {
+        return res.status(429).json({ error: "Too Many Requests" });
+      } else if (decision.reason.isBot()) {
+        return res.status(403).json({ error: "Bot access denied" });
+      } else {
+        return res.status(403).json({ error: "Forbidden" });
+      }
+    }
 
-//     if (
-//       decision.results.some(
-//         (result) => result.reason.isBot() && result.reason.isSpoofed()
-//       )
-//     ) {
-//       return res.status(403).json({ error: "Spoofed bot detected" });
-//     }
+    if (
+      decision.results.some(
+        (result) => result.reason.isBot() && result.reason.isSpoofed()
+      )
+    ) {
+      return res.status(403).json({ error: "Spoofed bot detected" });
+    }
 
-//     next();
-//   } catch (error) {
-//     console.log("Arcjet error", error);
-//     next(error);
-//   }
-// });
+    next();
+  } catch (error) {
+    console.log("Arcjet error", error);
+    next(error);
+  }
+});
 
 
 app.use("/api/products", productRoutes);
