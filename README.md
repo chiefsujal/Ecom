@@ -1,8 +1,8 @@
 # Karigari E-Commerce Platform
 
-Github Link : https://github.com/chiefsujal/Ecom 
-Youtube Link : https://youtu.be/9kZuiysqyjM 
-Documentation Link : https://weak-faucet-34d.notion.site/Karigari-214867a5ee9280d78670cad4c8c7d847
+-Github Link : https://github.com/chiefsujal/Ecom 
+-Youtube Link : https://youtu.be/9kZuiysqyjM 
+-Documentation Link : https://weak-faucet-34d.notion.site/Karigari-214867a5ee9280d78670cad4c8c7d847
 
 A modern, full-stack e-commerce platform designed for artisans and small businesses to manage their online presence.
 
