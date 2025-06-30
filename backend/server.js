@@ -87,7 +87,7 @@ async function initDB() {
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         username TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL,
-        phone TEXT NOT NULL,
+        phone TEXT NOT NULL,  
         password TEXT NOT NULL,
         is_admin BOOLEAN DEFAULT false
       )
